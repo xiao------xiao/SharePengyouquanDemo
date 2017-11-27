@@ -169,7 +169,7 @@ static CGFloat rubberBandDistance(CGFloat offset, CGFloat dimension) {
     
 //    *******************************图片部分************************************
     float topMargin = 60;
-    float footerHeight =KScreenWidth-64-topMargin;
+    float footerHeight =KSCreenHeight-64-topMargin;
     footerView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headerContentView.frame), KScreenWidth, footerHeight)];
     footerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:footerView];
@@ -230,12 +230,12 @@ static CGFloat rubberBandDistance(CGFloat offset, CGFloat dimension) {
     float imageWidth = KScreenWidth/3.0;
     float imageHeight = imageWidth;
  
-    picCount = self.imageArray.count;
+    picCount = 22;
     
     int colTotal = (picCount+2)/3;
     
     
-    imageContentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,height, KScreenWidth, footerHeight-height)];
+    imageContentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,height, KScreenWidth, MIN(footerView.frame.size.height - height, imageHeight * colTotal))];
     imageContentView.userInteractionEnabled = YES;   // 手势被scrollview 截取了后就不能传递到下面的footerview
     imageContentView.delegate = self;
     imageContentView.scrollEnabled = YES;
@@ -264,7 +264,7 @@ static CGFloat rubberBandDistance(CGFloat offset, CGFloat dimension) {
    
 //        imgv.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageArray[i]]]];
                       
-        imgv.image = [UIImage imageNamed:@"123"];
+        imgv.image = [UIImage imageNamed:@"123.jpg"];
         imgv.contentMode = UIViewContentModeScaleToFill;
         imgv.tag = 100+i;  //  100 -108 tag VALUE
         [imageContentView addSubview:imgv];

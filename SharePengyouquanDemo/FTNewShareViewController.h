@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//一个浮动列表的demo
 @interface FTNewShareViewController : UIViewController
 
 @property (nonatomic ,retain) NSArray *imageArray;
